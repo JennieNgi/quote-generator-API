@@ -1,0 +1,56 @@
+@model AdminManager
+
+<div class="row well mb-4">
+    <div class="col">
+        <form enctype="multipart/form-data" method="post" asp-controller="QuoteAdmin" asp-action="Add_Submit">
+            <div class="form-group">
+                <h5>Add quote to quote generator</h5>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.quote.author"></label>
+                <input type="text" asp-for="@Model.quote.author" class="form-control" maxlength="100" />
+                <span asp-validation-for="@Model.quote.author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.quote.quote"></label>
+                <textarea type="text" asp-for="@Model.quote.quote" class="form-control" rows="5" cols="60"></textarea>
+                <span asp-validation-for="@Model.quote.quote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.quote.permalink"></label>
+                <input type="text" asp-for="@Model.quote.permalink" class="form-control" maxlength="300" />
+                <span asp-validation-for="@Model.quote.permalink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="btn btn-warning">
+                    Browse for Quote Image <input id="btnUpload" type="file" name="selectedFile" hidden>
+                </label>
+                <span id="lblFileToUpload" class="text-warning" style="margin-left:5px"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Quote" class="btn btn-warning" />
+                <span class="text-warning" style="margin-left:5px">@Model.feedbackAdd</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row well">
+    <div class="col">
+        <form asp-controller="quoteGeneratorAPI" asp-action="Delete_Submit">
+            <div class="form-group">
+                <h5>Delete quote from Quote Generator</h5>
+            </div>
+            <div class="form-group">
+                <label for="lstQuotes">Select quote:</label>
+                <div class="form-group">
+                    <select id="lstQuotes" asp-for="@Model.quote.id" asp-items="@Model.getQuoteList()" disabled="@(Model.quoteCount == 0 ? true : false)" class="btn btn-dark form-control" style="max-width: 500px !important;"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-warning" disabled="@(Model.quoteCount == 0 ? true : false)" value="Delete Quote" />
+                <span class="text-warning" style="margin-left:5px">@Model.feedbackDel</span>
+            </div>
+        </form>
+    </div>
+</div>

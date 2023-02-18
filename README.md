@@ -3,7 +3,7 @@ This is a web application that generates random quotes using a custom Web API. I
 
 ## Getting Started
 To get started with the Quote Generator, you'll need to do the following:
-- Clone the repository: git clone https://github.com/<your_username>/quote-generator.git
+- Clone the repository
 - cd to the project folder
 - run 
 ```sh

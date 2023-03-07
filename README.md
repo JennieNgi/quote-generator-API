@@ -1,3 +1,4 @@
+![quoteGenerator](https://user-images.githubusercontent.com/75710628/223285741-99c6915c-927c-4bc0-ada4-60e401426050.png)
 # Quote Generator
 This is a web application that generates random quotes using a custom Web API. It includes two web apps, one for the Quote Generator itself, and one for an administration interface that allows you to add and remove quotes.
 
